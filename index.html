@@ -1,35 +1,499 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Department of Magical Maintenance</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      background: #171513;
-      color: #f5f5f5;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .box {
-      border: 2px solid #d4af37;
-      border-radius: 14px;
-      padding: 20px;
-    }
+<title>Department of Magical Maintenance</title>
 
-    h1 {
-      font-size: 22px;
-    }
-  </style>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(70,100,180,.20), transparent 35%),
+    linear-gradient(180deg, #171719 0%, #0c0c0f 55%, #080706 100%);
+  color: #eee7d5;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 10px;
+}
+
+.castle {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+}
+
+/* HEADER */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 18px 10px;
+  border: 1px solid rgba(230,190,80,.55);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(120,160,255,.16), transparent 55%),
+    linear-gradient(180deg, #201d19, #100e0c);
+  box-shadow:
+    0 0 14px rgba(120,160,255,.18),
+    inset 0 0 22px rgba(255,210,100,.05);
+}
+
+.header::before {
+  content: "✦";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: #e7c46b;
+  text-shadow: 0 0 8px #ffd86b;
+}
+
+.header::after {
+  content: "✦";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: #e7c46b;
+  text-shadow: 0 0 8px #ffd86b;
+}
+
+.castle-icon {
+  font-size: 34px;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 0 8px rgba(180,200,255,.5));
+}
+
+.title {
+  color: #f0d27c;
+  font-size: 21px;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px rgba(255,215,120,.6),
+    0 0 12px rgba(120,160,255,.3);
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  color: #b9cfff;
+}
+
+/* STATUS */
+
+.status {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 9px;
+  border: 1px solid rgba(90,220,150,.35);
+  background: rgba(20,80,55,.18);
+  font-size: 12px;
+}
+
+.status-light {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #70e6a3;
+  box-shadow:
+    0 0 5px #70e6a3,
+    0 0 10px rgba(112,230,163,.6);
+}
+
+.online {
+  color: #8ff0b5;
+  font-weight: bold;
+}
+
+/* PANELS */
+
+.panel {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 11px;
+  border: 1px solid rgba(255,215,120,.28);
+  background: rgba(25,20,15,.72);
+  box-shadow:
+    inset 0 0 18px rgba(255,200,120,.05),
+    0 0 10px rgba(0,0,0,.35);
+}
+
+.panel-title {
+  text-align: center;
+  color: #efd17c;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 9px;
+  text-shadow: 0 0 6px rgba(255,215,120,.35);
+}
+
+.divider {
+  height: 1px;
+  margin: 8px 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,215,120,.35),
+    transparent
+  );
+}
+
+/* NOTICE */
+
+.notice {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #e8e3d8;
+  text-align: center;
+}
+
+.notice-highlight {
+  color: #b9d7ff;
+}
+
+/* BUTTONS */
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.magic-button {
+  display: block;
+  padding: 9px 5px;
+  text-align: center;
+  text-decoration: none;
+  color: #cbdcff;
+  font-size: 11px;
+  border-radius: 7px;
+  border: 1px solid rgba(130,170,255,.28);
+  background: linear-gradient(
+    180deg,
+    rgba(80,110,180,.15),
+    rgba(10,10,20,.35)
+  );
+  transition: .2s;
+}
+
+.magic-button:hover {
+  color: white;
+  border-color: rgba(170,200,255,.7);
+  box-shadow:
+    0 0 8px rgba(100,150,255,.35),
+    inset 0 0 8px rgba(100,150,255,.12);
+  transform: translateY(-1px);
+}
+
+/* GRAMOPHONE */
+
+.gramophone {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, rgba(100,130,255,.12), transparent 60%),
+    linear-gradient(180deg, rgba(12,12,22,.96), rgba(0,0,0,.97));
+  border: 1px solid rgba(155,188,255,.45);
+  box-shadow:
+    0 0 12px rgba(120,160,255,.20),
+    inset 0 0 20px rgba(100,140,255,.08);
+}
+
+.gramophone-title {
+  color: #b7ccff;
+  font-size: 17px;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px rgba(120,160,255,.8),
+    0 0 12px rgba(150,100,255,.4);
+}
+
+.gramophone-subtitle {
+  margin-top: 5px;
+  color: #dce6ff;
+  font-size: 10px;
+  letter-spacing: 1px;
+  opacity: .85;
+}
+
+audio {
+  width: 100%;
+  margin-top: 11px;
+  height: 32px;
+}
+
+/* MAINTENANCE */
+
+.system-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 2px;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.system-row:last-child {
+  border-bottom: none;
+}
+
+.system-ok {
+  color: #86e5aa;
+}
+
+.system-magic {
+  color: #c3b1ff;
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 13px;
+  padding: 13px 7px;
+  text-align: center;
+  color: #c5b88f;
+  font-size: 10px;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,215,120,.20);
+}
+
+.seal {
+  color: #efd17c;
+  font-size: 12px;
+}
+
+.cheese {
+  margin-top: 5px;
+  opacity: .75;
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 300px) {
+  body {
+    padding: 6px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .links {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="box">
-    <h1>🧀 Department of Magical Maintenance 🔧</h1>
-    <p>The Plumbing is operational.</p>
-    <p>🏰✨ Experimental Castle Systems ✨🏰</p>
+
+<div class="castle">
+
+  <!-- CASTLE HEADER -->
+
+  <div class="header">
+    <div class="castle-icon">🏰</div>
+
+    <div class="title">
+      Department of<br>
+      Magical Maintenance
+    </div>
+
+    <div class="subtitle">
+      HOGWARTS CASTLE SYSTEMS
+    </div>
   </div>
+
+
+  <!-- SYSTEM STATUS -->
+
+  <div class="status">
+    <span class="status-light"></span>
+    CASTLE SYSTEMS:
+    <span class="online">ONLINE</span>
+  </div>
+
+
+  <!-- HEADMASTER NOTICE -->
+
+  <div class="panel">
+
+    <div class="panel-title">
+      📜 Headmaster's Notice Board
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="notice">
+      Strange activity has been detected beneath the Castle.
+      <br><br>
+
+      <span class="notice-highlight">
+        ✦ The Magical Plumbing is operational.
+      </span>
+
+      <br><br>
+
+      All unexplained Cheese should be reported immediately
+      to the Department of Magical Maintenance.
+      🧀
+    </div>
+
+  </div>
+
+
+  <!-- CASTLE NETWORK -->
+
+  <div class="panel">
+
+    <div class="panel-title">
+      🏰 Castle Network
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="links">
+
+      <a class="magic-button"
+         href="https://www.chess.com/clubs/about/hogwarts-high-school"
+         target="_blank">
+         🏰 Hogwarts HHS
+      </a>
+
+      <a class="magic-button"
+         href="https://www.chess.com/clubs/forum/view/owl-news-1"
+         target="_blank">
+         🦉 Owl News
+      </a>
+
+      <a class="magic-button"
+         href="#"
+         target="_blank">
+         🧹 Quidditch
+      </a>
+
+      <a class="magic-button"
+         href="#"
+         target="_blank">
+         🏆 House Cup
+      </a>
+
+      <a class="magic-button"
+         href="#"
+         target="_blank">
+         🪄 Special Events
+      </a>
+
+      <a class="magic-button"
+         href="#"
+         target="_blank">
+         📚 Castle Archives
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAINTENANCE SYSTEMS -->
+
+  <div class="panel">
+
+    <div class="panel-title">
+      🔧 Magical Maintenance
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="system-row">
+      <span>GitHub Plumbing</span>
+      <span class="system-ok">ONLINE ✦</span>
+    </div>
+
+    <div class="system-row">
+      <span>Castle Network</span>
+      <span class="system-ok">CONNECTED ✦</span>
+    </div>
+
+    <div class="system-row">
+      <span>Wizard Gramophone</span>
+      <span class="system-magic">ENCHANTED ✦</span>
+    </div>
+
+    <div class="system-row">
+      <span>Cheese Reserves</span>
+      <span class="system-ok">MAXIMUM 🧀</span>
+    </div>
+
+  </div>
+
+
+  <!-- WIZARD GRAMOPHONE -->
+
+  <div class="panel gramophone">
+
+    <div class="gramophone-title">
+      🎧 The Wizard Gramophone
+    </div>
+
+    <div class="gramophone-subtitle">
+      "...the castle begins to singh 🎤..."
+    </div>
+
+    <audio controls>
+      <source
+        src="https://files.catbox.moe/7t77sn.mp3"
+        type="audio/mpeg">
+    </audio>
+
+    <div style="
+      margin-top:10px;
+      font-size:9px;
+      color:rgba(190,210,255,.65);
+      letter-spacing:1px;
+    ">
+      ✨ MAGICALLY FUELLED BY<br>
+      MASTER MAHARAJA SINGH 🧞🪔✨
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+
+    <div class="seal">
+      ✦ By Order of the Headmaster ✦
+    </div>
+
+    <div>
+      Hogwarts High School
+      Interconnected Castle Network
+    </div>
+
+    <div class="cheese">
+      🧀 It was all in the Plumbing... 🔧
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 </html>
