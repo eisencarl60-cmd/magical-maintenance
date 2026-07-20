@@ -557,6 +557,279 @@ setInterval(
 );
 
 </script>
+  
+  <!-- SORTING HAT - NEWEST STUDENTS -->
+
+<div class="panel">
+
+  <div class="panel-title">
+    🎩 Welcome... The Sorting Hat<br>
+    Awaits You 🧀
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="
+    text-align:center;
+    font-size:12px;
+    line-height:1.4;
+    color:#d8d0c2;
+    margin-bottom:12px;
+  ">
+    A seat awaits... The Hat has not yet spoken.
+  </div>
+
+  <div id="newest-students">
+    <div style="
+      text-align:center;
+      font-size:11px;
+      color:#b9cfff;
+      padding:10px;
+    ">
+      ✨ Consulting the Sorting Hat...
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+
+/*
+========================================
+🎩 SORTING HAT CONTROL ROOM
+========================================
+*/
+
+const HOGWARTS_CLUB_SLUG = "hogwarts-high-school";
+const STUDENTS_TO_SHOW = 3;
+const STUDENT_REFRESH_MS = 60000;
+
+
+/*
+========================================
+🪄 SORTING HAT MACHINERY
+========================================
+*/
+
+async function loadNewestStudents() {
+
+  const container =
+    document.getElementById("newest-students");
+
+  try {
+
+    const response = await fetch(
+      "https://api.chess.com/pub/club/" +
+      HOGWARTS_CLUB_SLUG +
+      "/members"
+    );
+
+    if (!response.ok) {
+      throw new Error("The Sorting Hat is unavailable.");
+    }
+
+    const data = await response.json();
+
+    /*
+    Combine all membership groups returned
+    by the Chess.com API.
+    */
+
+    let allMembers = [];
+
+    Object.values(data).forEach(group => {
+
+      if (Array.isArray(group)) {
+        allMembers.push(...group);
+      }
+
+    });
+
+
+    /*
+    Remove duplicate usernames.
+    */
+
+    const uniqueMembers =
+      Array.from(
+        new Map(
+          allMembers.map(member => [
+            member.username.toLowerCase(),
+            member
+          ])
+        ).values()
+      );
+
+
+    /*
+    Newest Hogwarts students first.
+    */
+
+    uniqueMembers.sort(
+      (a, b) =>
+        (b.joined || 0) -
+        (a.joined || 0)
+    );
+
+
+    const newestStudents =
+      uniqueMembers.slice(
+        0,
+        STUDENTS_TO_SHOW
+      );
+
+
+    /*
+    Build the Sorting Hat cards.
+    */
+
+    container.innerHTML = "";
+
+
+    newestStudents.forEach(student => {
+
+      const card =
+        document.createElement("a");
+
+      card.href =
+        "https://www.chess.com/member/" +
+        encodeURIComponent(student.username);
+
+      card.target = "_blank";
+
+      card.style.cssText = `
+        display:block;
+        padding:10px;
+        margin-top:7px;
+        border-radius:9px;
+        border:1px solid rgba(255,215,120,.25);
+        background:rgba(10,8,5,.38);
+        text-decoration:none;
+        transition:.2s;
+      `;
+
+
+      card.onmouseenter = function() {
+
+        this.style.borderColor =
+          "rgba(255,215,120,.65)";
+
+        this.style.boxShadow =
+          "0 0 8px rgba(255,210,100,.18)";
+
+        this.style.transform =
+          "translateY(-1px)";
+
+      };
+
+
+      card.onmouseleave = function() {
+
+        this.style.borderColor =
+          "rgba(255,215,120,.25)";
+
+        this.style.boxShadow =
+          "none";
+
+        this.style.transform =
+          "none";
+
+      };
+
+
+      const username =
+        document.createElement("div");
+
+      username.style.cssText = `
+        color:#70e6a3;
+        font-size:13px;
+        margin-bottom:5px;
+      `;
+
+      username.textContent =
+        "🧙 @" + student.username;
+
+
+      const status =
+        document.createElement("div");
+
+      status.style.cssText = `
+        text-align:center;
+        color:#efd17c;
+        font-size:12px;
+        font-weight:bold;
+      `;
+
+      status.textContent =
+        "Awaiting...";
+
+
+      card.appendChild(username);
+      card.appendChild(status);
+
+      container.appendChild(card);
+
+    });
+
+
+    /*
+    Emergency response if the API
+    returns no students.
+    */
+
+    if (newestStudents.length === 0) {
+
+      container.innerHTML =
+        '<div style="' +
+        'text-align:center;' +
+        'color:#efd17c;' +
+        'font-size:11px;' +
+        'padding:10px;' +
+        '">' +
+        '🎩 The Sorting Hat is waiting...' +
+        '</div>';
+
+    }
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "Sorting Hat error:",
+      error
+    );
+
+    container.innerHTML =
+      '<div style="' +
+      'text-align:center;' +
+      'color:#efd17c;' +
+      'font-size:11px;' +
+      'padding:10px;' +
+      '">' +
+      '🎩 The Sorting Hat is temporarily consulting Dumbledore...' +
+      '</div>';
+
+  }
+
+}
+
+
+/*
+========================================
+✨ AWAKEN THE SORTING HAT
+========================================
+*/
+
+loadNewestStudents();
+
+setInterval(
+  loadNewestStudents,
+  STUDENT_REFRESH_MS
+);
+
+</script>
   <!-- MAINTENANCE SYSTEMS -->
 
   <div class="panel">
