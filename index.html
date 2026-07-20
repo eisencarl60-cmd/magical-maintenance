@@ -626,8 +626,13 @@ async function loadNewestStudents() {
     );
 
     if (!response.ok) {
-      throw new Error("The Sorting Hat is unavailable.");
-    }
+  throw new Error(
+    "Chess.com returned HTTP " +
+    response.status +
+    " " +
+    response.statusText
+  );
+}
 
     const data = await response.json();
 
