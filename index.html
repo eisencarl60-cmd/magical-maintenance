@@ -796,20 +796,24 @@ async function loadNewestStudents() {
 
   catch (error) {
 
-    console.error(
-      "Sorting Hat error:",
-      error
-    );
+  console.error("Sorting Hat error:", error);
 
-    container.innerHTML =
-      '<div style="' +
-      'text-align:center;' +
-      'color:#efd17c;' +
-      'font-size:11px;' +
-      'padding:10px;' +
-      '">' +
-      '🎩 The Sorting Hat is temporarily consulting Dumbledore...' +
-      '</div>';
+  container.innerHTML =
+    '<div style="' +
+    'text-align:center;' +
+    'color:#ffcf70;' +
+    'font-size:11px;' +
+    'line-height:1.5;' +
+    'padding:10px;' +
+    '">' +
+    '🎩 <strong>Sorting Hat Diagnostic</strong><br><br>' +
+    'The student siphon failed.<br>' +
+    '<span style="color:#ff8f8f;">' +
+    error.name + ': ' + error.message +
+    '</span>' +
+    '</div>';
+
+}
 
   }
 
