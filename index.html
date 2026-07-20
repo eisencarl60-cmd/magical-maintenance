@@ -620,10 +620,10 @@ async function loadNewestStudents() {
   try {
 
     const response = await fetch(
-      "https://api.chess.com/pub/club/" +
-      HOGWARTS_CLUB_SLUG +
-      "/members"
-    );
+  "https://api.chess.com/pub/club/" +
+  CLUB_SLUG +
+  "/members"
+);
 
     if (!response.ok) {
   throw new Error(
