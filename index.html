@@ -636,15 +636,11 @@ async function loadNewestStudents() {
     by the Chess.com API.
     */
 
-    let allMembers = [];
-
-    Object.values(data).forEach(group => {
-
-      if (Array.isArray(group)) {
-        allMembers.push(...group);
-      }
-
-    });
+    const allMembers = [
+  ...(data.weekly || []),
+  ...(data.monthly || []),
+  ...(data.all_time || [])
+];
 
 
     /*
