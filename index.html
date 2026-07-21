@@ -640,7 +640,7 @@ async function loadNewestStudents() {
     by the Chess.com API.
     */
 
-    const allMembers = data.members || [];
+    const allMembers = [...(data.weekly || []), ...(data.monthly || []), ...(data.all_time || [])];
 
 
     /*
