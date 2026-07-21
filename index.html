@@ -616,14 +616,30 @@ async function loadNewestStudents() {
 
   const container =
     document.getElementById("newest-students");
+  
 
   try {
 
-    const response = await fetch(
-  "https://api.chess.com/pub/club/" +
-  CLUB_SLUG +
-  "/members"
-);
+   const response = await fetch(
+  "https://www.chess.com/service/clubs/chesscom.clubs.v3.ClubMemberSearchService/QueryClubMembers",
+       {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({
+           query: {
+             clubUuid: "b5621564-909d-11ee-98b2-411b79b045f1",
+             bannedStatus: "BANNED_STATUS_NOT_BANNED",
+             closedStatus: "CLOSED_STATUS_NOT_CLOSED"
+               },
+           orderBy: [
+             {
+               option: "CLUB_MEMBERS_ORDER_BY_OPTION_NEWEST_MEMBER",
+               order: "CLUB_MEMBERS_ORDER_ASC"
+                 }
+             ]
+             })
+           }
+     );
 
     if (!response.ok) {
   throw new Error(
@@ -641,11 +657,7 @@ async function loadNewestStudents() {
     by the Chess.com API.
     */
 
-    const allMembers = [
-  ...(data.weekly || []),
-  ...(data.monthly || []),
-  ...(data.all_time || [])
-];
+    const allMembers = data.members || [];
 
 
     /*
@@ -656,7 +668,7 @@ async function loadNewestStudents() {
       Array.from(
         new Map(
           allMembers.map(member => [
-            member.username.toLowerCase(),
+           member.userView.username.toLowerCase(),
             member
           ])
         ).values()
@@ -669,8 +681,8 @@ async function loadNewestStudents() {
 
     uniqueMembers.sort(
       (a, b) =>
-        (b.joined || 0) -
-        (a.joined || 0)
+        new Date(b.joinedAt || 0) -
+new Date(a.joinedAt || 0)
     );
 
 
@@ -695,8 +707,7 @@ async function loadNewestStudents() {
 
       card.href =
         "https://www.chess.com/member/" +
-        encodeURIComponent(student.username);
-
+       encodeURIComponent(student.userView.username);
       card.target = "_blank";
 
       card.style.cssText = `
@@ -749,7 +760,7 @@ async function loadNewestStudents() {
       `;
 
       username.textContent =
-        "🧙 @" + student.username;
+       "🧙‍♂️ @" + student.userView.username;
 
 
       const status =
