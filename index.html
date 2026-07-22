@@ -90,7 +90,86 @@ body {
   letter-spacing: 1.4px;
   color: #b9cfff;
 }
+/* CRYSTAL BALL MAGIC */
 
+.crystal-ball {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 55px;
+  height: 42px;
+  z-index: 5;
+  pointer-events: none;
+  animation: crystalTravel 9s ease-in-out infinite alternate;
+}
+
+.ball {
+  position: absolute;
+  left: 14px;
+  top: 5px;
+  font-size: 25px;
+  filter: drop-shadow(0 0 7px rgba(170,130,255,.8));
+  animation: crystalFloat 2.2s ease-in-out infinite;
+}
+
+.sparkle {
+  position: absolute;
+  color: #f5d97b;
+  text-shadow: 0 0 7px #ffd86b;
+  animation: sparkleMagic 1.8s ease-in-out infinite;
+}
+
+.sparkle-1 {
+  left: 2px;
+  top: 3px;
+  font-size: 10px;
+}
+
+.sparkle-2 {
+  right: 0;
+  top: 18px;
+  font-size: 12px;
+  animation-delay: .6s;
+}
+
+.sparkle-3 {
+  left: 7px;
+  bottom: 0;
+  font-size: 8px;
+  animation-delay: 1.2s;
+}
+
+@keyframes crystalTravel {
+  0% {
+    left: 2%;
+  }
+
+  100% {
+    left: calc(100% - 58px);
+  }
+}
+
+@keyframes crystalFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(6px) rotate(5deg);
+  }
+}
+
+@keyframes sparkleMagic {
+  0%, 100% {
+    opacity: .15;
+    transform: scale(.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
 /* STATUS */
 
 .status {
@@ -307,6 +386,12 @@ audio {
   <!-- CASTLE HEADER -->
 
   <div class="header">
+    <div class="crystal-ball">
+  <span class="ball">🔮</span>
+  <span class="sparkle sparkle-1">✨</span>
+  <span class="sparkle sparkle-2">✦</span>
+  <span class="sparkle sparkle-3">✨</span>
+</div>
     <div class="castle-icon">🏰</div>
 
     <div class="title">
