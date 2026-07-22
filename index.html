@@ -415,6 +415,116 @@ body {
 .slytherin {
   color: #55d98b;
 }
+  /* SPECIAL AWARDS TRINITY */
+
+.awards-subtitle {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #d7c4ff;
+  margin-bottom: 14px;
+}
+
+#awards-trinity {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: end;
+  gap: 6px;
+  padding: 20px 4px 4px;
+}
+
+/* Magical alchemical triangle */
+
+#awards-trinity::before {
+  content: "△";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scaleX(1.8);
+  font-size: 95px;
+  color: rgba(190,160,255,.12);
+  text-shadow:
+    0 0 10px rgba(160,120,255,.25),
+    0 0 20px rgba(100,160,255,.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Podium positions */
+
+#award-second,
+#award-first,
+#award-third {
+  position: relative;
+  z-index: 1;
+}
+
+#award-first {
+  transform: translateY(-14px);
+}
+
+/* Individual student cards */
+
+.award-card {
+  display: block;
+  text-align: center;
+  padding: 9px 4px;
+  border-radius: 9px;
+  background: rgba(10,8,5,.55);
+  text-decoration: none;
+  transition: .3s;
+}
+
+.award-card:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Gold */
+
+.award-first {
+  color: #ffd84d;
+  border: 1px solid rgba(255,215,80,.65);
+  box-shadow:
+    0 0 12px rgba(255,215,80,.30),
+    inset 0 0 10px rgba(255,215,80,.08);
+}
+
+/* Silver */
+
+.award-second {
+  color: #d9e4f2;
+  border: 1px solid rgba(210,225,245,.45);
+  box-shadow: 0 0 8px rgba(190,215,255,.18);
+}
+
+/* Bronze */
+
+.award-third {
+  color: #e6a66c;
+  border: 1px solid rgba(230,166,108,.45);
+  box-shadow: 0 0 8px rgba(230,150,90,.18);
+}
+
+.award-medal {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.award-name {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.award-count {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
 /* STATUS */
 
 .status {
@@ -1033,6 +1143,121 @@ houses.forEach((house, index) => {
     '</span>';
 
   standings.appendChild(row);
+
+});
+
+</script>
+  <!-- SPECIAL AWARDS TRINITY -->
+
+<div class="panel" id="awards-panel">
+
+  <a href="https://www.chess.com/clubs/forum/view/test-407838-4"
+     target="_blank"
+     style="text-decoration:none; color:inherit;">
+
+    <div class="panel-title">
+      🏅 𝓢𝓹𝓮𝓬𝓲𝓪𝓵 𝓐𝔀𝓪𝓻𝓭𝓼
+    </div>
+
+  </a>
+
+  <div class="divider"></div>
+
+  <div class="awards-subtitle">
+    ✨ HOGWARTS AWARDS TRINITY ✨
+  </div>
+
+  <div id="awards-trinity">
+
+    <div id="award-second"></div>
+
+    <div id="award-first"></div>
+
+    <div id="award-third"></div>
+
+  </div>
+
+</div>
+  <script>
+
+/*
+========================================
+🏅 SPECIAL AWARDS CONTROL ROOM
+EDIT STUDENTS AND AWARD TOTALS HERE
+========================================
+*/
+
+const specialAwards = [
+  {
+    name: "benson1952",
+    awards: 19,
+    profile: "https://www.chess.com/member/benson1952"
+  },
+  {
+    name: "Minerva_Umbridge",
+    awards: 15,
+    profile: "https://www.chess.com/member/minerva_umbridge"
+  },
+  {
+    name: "x_Bentley_x",
+    awards: 14,
+    profile: "https://www.chess.com/member/x_bentley_x"
+  }
+];
+
+
+/*
+========================================
+✨ AWARDS TRINITY MAGICAL MACHINERY
+NO HEADMASTERIAL TINKERING REQUIRED
+========================================
+*/
+
+specialAwards.sort((a, b) => b.awards - a.awards);
+
+const podium = [
+  {
+    position: "award-first",
+    student: specialAwards[0],
+    medal: "🥇"
+  },
+  {
+    position: "award-second",
+    student: specialAwards[1],
+    medal: "🥈"
+  },
+  {
+    position: "award-third",
+    student: specialAwards[2],
+    medal: "🥉"
+  }
+];
+
+podium.forEach(entry => {
+
+  const container =
+    document.getElementById(entry.position);
+
+  container.innerHTML =
+    '<a class="award-card ' +
+    entry.position +
+    '" href="' +
+    entry.student.profile +
+    '" target="_blank">' +
+
+    '<span class="award-medal">' +
+    entry.medal +
+    '</span>' +
+
+    '<span class="award-name">@' +
+    entry.student.name +
+    '</span>' +
+
+    '<span class="award-count">' +
+    entry.student.awards +
+    ' 🏅</span>' +
+
+    '</a>';
 
 });
 
