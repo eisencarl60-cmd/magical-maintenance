@@ -349,6 +349,66 @@ body {
     opacity: 1;
   }
 }
+  /* HOGWARTS HOUSE CUP */
+
+.house-cup-subtitle {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #b9cfff;
+  margin-bottom: 10px;
+}
+
+.house-standing {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 10px;
+  margin-top: 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(10,8,5,.38);
+  font-size: 13px;
+  transition: .3s;
+}
+
+.house-standing.leader {
+  border-color: rgba(255,215,120,.55);
+  box-shadow:
+    0 0 9px rgba(255,215,120,.20),
+    inset 0 0 10px rgba(255,215,120,.06);
+}
+
+.house-name {
+  font-weight: bold;
+}
+
+.house-points {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.house-trophy {
+  margin-right: 6px;
+  filter: drop-shadow(0 0 5px rgba(255,215,100,.8));
+}
+
+.gryffindor {
+  color: #ffd84d;
+}
+
+.ravenclaw {
+  color: #55cfff;
+}
+
+.hufflepuff {
+  color: #c77dff;
+}
+
+.slytherin {
+  color: #55d98b;
+}
 /* STATUS */
 
 .status {
@@ -867,7 +927,105 @@ setInterval(() => {
 
 }, 20000);
 </script>
-  
+  <!-- HOGWARTS HOUSE CUP -->
+
+<div class="panel" id="house-cup-panel">
+
+  <div class="panel-title">
+    🏆 Hogwarts House Cup
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="house-cup-subtitle">
+    CURRENT HOUSE STANDINGS
+  </div>
+
+  <div id="house-cup-standings"></div>
+
+</div>
+  <script>
+
+/*
+========================================
+🏆 HOUSE CUP CONTROL ROOM
+EDIT ONLY THESE FOUR NUMBERS
+========================================
+*/
+
+const houseCupPoints = {
+  gryffindor: 16,
+  ravenclaw: 12,
+  hufflepuff: 7,
+  slytherin: 9
+};
+
+
+/*
+========================================
+✨ HOUSE CUP MAGICAL MACHINERY
+NO HEADMASTERIAL TINKERING REQUIRED
+========================================
+*/
+
+const houses = [
+  {
+    name: "House Gryffindor",
+    emoji: "🦁",
+    house: "gryffindor",
+    points: houseCupPoints.gryffindor
+  },
+  {
+    name: "House Ravenclaw",
+    emoji: "🦅",
+    house: "ravenclaw",
+    points: houseCupPoints.ravenclaw
+  },
+  {
+    name: "House Hufflepuff",
+    emoji: "🦡",
+    house: "hufflepuff",
+    points: houseCupPoints.hufflepuff
+  },
+  {
+    name: "House Slytherin",
+    emoji: "🐍",
+    house: "slytherin",
+    points: houseCupPoints.slytherin
+  }
+];
+
+houses.sort((a, b) => b.points - a.points);
+
+const standings =
+  document.getElementById("house-cup-standings");
+
+houses.forEach((house, index) => {
+
+  const row = document.createElement("div");
+
+  row.className =
+    "house-standing " +
+    house.house +
+    (index === 0 ? " leader" : "");
+
+  row.innerHTML =
+    '<span class="house-name">' +
+    (index === 0
+      ? '<span class="house-trophy">🏆</span>'
+      : '') +
+    house.name + " " +
+    house.emoji +
+    '</span>' +
+    '<span class="house-points">' +
+    house.points +
+    '</span>';
+
+  standings.appendChild(row);
+
+});
+
+</script>
   <!-- SORTING HAT - NEWEST STUDENTS -->
 
 <div class="panel">
