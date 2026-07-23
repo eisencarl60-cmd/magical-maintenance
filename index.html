@@ -729,38 +729,69 @@ body {
   position: relative;
   overflow: hidden;
   text-align: center;
+  margin: 14px;
+  padding: 12px;
   background:
-    radial-gradient(circle at center, rgba(100,130,255,.12), transparent 60%),
-    linear-gradient(180deg, rgba(12,12,22,.96), rgba(0,0,0,.97));
-  border: 1px solid rgba(155,188,255,.45);
+    radial-gradient(circle at center,
+      rgba(120,160,255,0.16) 0%,
+      rgba(180,120,255,0.10) 22%,
+      rgba(0,0,0,0) 70%),
+    linear-gradient(180deg,
+      rgba(10,10,18,0.92),
+      rgba(0,0,0,0.96));
+  border-radius: 14px;
+  border: 1px solid rgba(155,188,255,0.55);
   box-shadow:
-    0 0 12px rgba(120,160,255,.20),
-    inset 0 0 20px rgba(100,140,255,.08);
+    0 0 10px rgba(120,160,255,0.30),
+    0 0 24px rgba(120,160,255,0.18),
+    0 0 40px rgba(140,80,255,0.12),
+    inset 0 0 18px rgba(80,120,255,0.10),
+    inset 0 0 30px rgba(255,255,255,0.03);
 }
 
 .gramophone-title {
+  position: relative;
   color: #b7ccff;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 8px;
   text-shadow:
-    0 0 5px rgba(120,160,255,.8),
-    0 0 12px rgba(150,100,255,.4);
+    0 0 4px rgba(120,160,255,0.95),
+    0 0 10px rgba(120,160,255,0.65),
+    0 0 18px rgba(180,120,255,0.45);
 }
 
 .gramophone-subtitle {
-  margin-top: 5px;
-  color: #dce6ff;
-  font-size: 10px;
+  position: relative;
+  margin-bottom: 12px;
+  color: #e1ebff;
+  font-size: 12px;
   letter-spacing: 1px;
-  opacity: .85;
+  opacity: 0.92;
+  text-shadow:
+    0 0 6px rgba(120,160,255,0.45);
 }
 
-audio {
+.gramophone audio {
+  position: relative;
+  display: block;
   width: 100%;
-  margin-top: 11px;
+  max-width: 230px;
   height: 32px;
+  margin: 11px auto 0;
+  padding: 10px;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg,
+      rgba(120,160,255,0.10),
+      rgba(0,0,0,0.28));
+  box-shadow:
+    inset 0 0 14px rgba(120,160,255,0.12),
+    0 0 14px rgba(120,160,255,0.16);
+  filter:
+    drop-shadow(0 0 6px rgba(120,160,255,0.35))
+    brightness(1.05);
 }
-
 /* MAINTENANCE */
 
 .system-row {
