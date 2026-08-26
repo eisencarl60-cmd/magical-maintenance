@@ -999,7 +999,18 @@ body {
   font-weight: bold;
   text-align: center;
 }
+.cheese-wheel {
+  width: 180px;
+  height: 180px;
+  margin: 10px auto;
+  position: relative;
+}
 
+.cheese-wheel-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 /* FOOTER */
 
 .footer {
