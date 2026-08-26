@@ -1019,8 +1019,8 @@ body {
   background: linear-gradient(
     60deg,
     transparent 49.5%,
-    #201d19 49.5%,
-    #201d19 50.5%,
+   #201d19 49.7%,
+   #201d19 50.3%,
     transparent 50.5%
   );
   border-radius: 50%;
@@ -1032,8 +1032,8 @@ body {
   background: linear-gradient(
     30deg,
     transparent 49.5%,
-    #201d19 49.5%,
-    #201d19 50.5%,
+    #201d19 49.7%,
+    #201d19 50.3%,
     transparent 50.5%
   );
   border-radius: 50%;
