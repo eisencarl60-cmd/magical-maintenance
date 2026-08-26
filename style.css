@@ -1000,12 +1000,11 @@ body {
   text-align: center;
 }
 .cheese-wheel {
-  width: 220px;
-  height: 220px;
+  width: 250px;
+  height: 250px;
   margin: 10px auto;
   position: relative;
 }
-
 .cheese-wheel-face {
   width: 100%;
   height: 100%;
