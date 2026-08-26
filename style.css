@@ -990,6 +990,16 @@ body {
 .notice a:hover {
   color: #f0d27c;
 }
+
+/* Cheese Horologium*/
+
+.cheese-horologium-title {
+  color: #ffd84d;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* FOOTER */
 
 .footer {
