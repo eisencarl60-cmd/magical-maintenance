@@ -1,884 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ℌ𝔬𝔤𝔴𝔞𝔯𝔱𝔰 ℌ𝔦𝔤𝔥 𝔖𝔠𝔥𝔬𝔬𝔩🏰</title>
+    <title>ℌ𝔬𝔤𝔴𝔞𝔯𝔱𝔰 ℌ𝔦𝔤𝔥 𝔖𝔠𝔥𝔬𝔬𝔩🏰</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-}
-
-body {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(70,100,180,.20), transparent 35%),
-    linear-gradient(180deg, #171719 0%, #0c0c0f 55%, #080706 100%);
-  color: #eee7d5;
-  font-family: Georgia, "Times New Roman", serif;
-  padding: 10px;
-}
-
-.castle {
-  width: 100%;
-  max-width: 420px;
-  margin: auto;
-}
-
-/* HEADER */
-
-.header {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 18px 10px;
-  border: 1px solid rgba(230,190,80,.55);
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at 50% 10%, rgba(120,160,255,.16), transparent 55%),
-    linear-gradient(180deg, #201d19, #100e0c);
-  box-shadow:
-    0 0 14px rgba(120,160,255,.18),
-    inset 0 0 22px rgba(255,210,100,.05);
-}
-
-.header::before {
-  content: "✦";
-  position: absolute;
-  top: 8px;
-  left: 12px;
-  color: #e7c46b;
-  text-shadow: 0 0 8px #ffd86b;
-}
-
-.header::after {
-  content: "✦";
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  color: #e7c46b;
-  text-shadow: 0 0 8px #ffd86b;
-}
-
-.castle-icon {
-  font-size: 34px;
-  margin-bottom: 5px;
-  filter: drop-shadow(0 0 8px rgba(180,200,255,.5));
-}
-
-.title {
-  color: #87CEEB;
-  font-size: 28px;
-  font-weight: bold;
-  text-shadow:
-    0 0 5px rgba(255,215,120,.6),
-    0 0 12px rgba(120,160,255,.3);
-}
-
-.subtitle {
-  margin-top: 6px;
-  font-size: 11px;
-  letter-spacing: 1.4px;
-  color: #b9cfff;
-}
-  /* CURRENT TERM */
-
-.current-term {
-  text-align: center;
-  padding: 14px 10px 16px;
-  color: #eee7d5;
-}
-
-.term-motto {
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.term-label {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.term-title {
-  font-size: 15px;
-  font-weight: bold;
-  color: #d86bd8;
-  margin-bottom: 20px;
-}
-
-.term-description {
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.45;
-}
-  /* BEGIN YOUR JOURNEY */
-
-.journey-card {
-  margin: 6px 4px 16px;
-  padding: 14px 14px 16px;
-  border: 1px solid rgba(230,190,80,.45);
-  border-radius: 10px;
-  background: rgba(16,13,10,.88);
-}
-
-.journey-title {
-  color: #f0d27c;
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 22px;
-  text-shadow: 0 0 6px rgba(255,215,120,.35);
-}
-
-.journey-subtitle {
-  font-size: 15px;
-  font-weight: bold;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.journey-link {
-  display: block;
-  color: #b9cfff;
-  font-size: 15px;
-  line-height: 1.8;
-  text-decoration: none;
-  transition: transform .2s ease, color .2s ease;
-}
-
-.journey-link:hover {
-  color: #f0d27c;
-  transform: translateX(3px);
-}
-
-.journey-link:last-child {
-  color: #ff665c;
-}
-/* CRYSTAL BALL MAGIC */
-
-.crystal-ball {
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 55px;
-  height: 42px;
-  z-index: 5;
-  pointer-events: none;
-  animation: crystalTravel 9s ease-in-out infinite alternate;
-}
-
-.ball {
-  position: absolute;
-  left: 14px;
-  top: 5px;
-  font-size: 25px;
-  filter: drop-shadow(0 0 7px rgba(170,130,255,.8));
-  animation: crystalFloat 2.2s ease-in-out infinite;
-}
-
-.sparkle {
-  position: absolute;
-  color: #f5d97b;
-  text-shadow: 0 0 7px #ffd86b;
-  animation: sparkleMagic 1.8s ease-in-out infinite;
-}
-
-.sparkle-1 {
-  left: 2px;
-  top: 3px;
-  font-size: 10px;
-}
-
-.sparkle-2 {
-  right: 0;
-  top: 18px;
-  font-size: 12px;
-  animation-delay: .6s;
-}
-
-.sparkle-3 {
-  left: 7px;
-  bottom: 0;
-  font-size: 8px;
-  animation-delay: 1.2s;
-}
-
-@keyframes crystalTravel {
-  0% {
-    left: 2%;
-  }
-
-  100% {
-    left: calc(100% - 58px);
-  }
-}
-
-@keyframes crystalFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-5deg);
-  }
-
-  50% {
-    transform: translateY(6px) rotate(5deg);
-  }
-}
-
-@keyframes sparkleMagic {
-  0%, 100% {
-    opacity: .15;
-    transform: scale(.6);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.25);
-  }
-}
-  .magic-impact {
-  position: absolute;
-  top: 5px;
-  z-index: 6;
-  font-size: 22px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.impact-left {
-  left: 7px;
-  animation: impactLeft 18s infinite;
-}
-
-.impact-right {
-  right: 7px;
-  animation: impactRight 18s infinite;
-}
-
-@keyframes impactLeft {
-  0%, 2% {
-    opacity: 1;
-    transform: scale(.5);
-  }
-
-  4% {
-    opacity: 0;
-    transform: scale(1.4);
-  }
-
-  96% {
-    opacity: 0;
-    transform: scale(.5);
-  }
-
-  98%, 100% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-}
-
-@keyframes impactRight {
-  0%, 46% {
-    opacity: 0;
-    transform: scale(.5);
-  }
-
-  49%, 51% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-
-  54%, 100% {
-    opacity: 0;
-    transform: scale(.5);
-  }
-}
-  /* QUIDDITCH MAGIC SCENE */
-
-.quidditch-sky {
-  position: relative;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 9px;
-  background:
-    radial-gradient(circle at 50% 30%, rgba(100,140,255,.20), transparent 45%),
-    linear-gradient(180deg, #171b2d, #090a12);
-  border: 1px solid rgba(130,170,255,.25);
-}
-
-.flying-broom {
-  position: absolute;
-  left: -45px;
-  top: 65px;
-  font-size: 30px;
-  z-index: 3;
-  filter: drop-shadow(0 0 7px rgba(255,215,120,.5));
-  animation: broomChase 4s ease-in-out infinite;
-}
-
-.golden-snitch {
-  position: absolute;
-  right: 20px;
-  top: 35px;
-  font-size: 24px;
-  z-index: 2;
-  filter: drop-shadow(0 0 8px rgba(255,220,100,.9));
-  animation: snitchFlutter 1.2s ease-in-out infinite alternate;
-}
-.mystery-cup {
-  position: absolute;
-  right: 14px;
-  top: 30px;
-  font-size: 26px;
-  z-index: 4;
-  opacity: 0;
-  pointer-events: none;
-  filter: drop-shadow(0 0 10px rgba(255,215,100,.9));
-  animation: mysteryCupReveal 4s ease-in-out infinite;
-}
-
-@keyframes mysteryCupReveal {
-  0%, 76% {
-    opacity: 0;
-    transform: scale(.4) rotate(-10deg);
-  }
-
-  82% {
-    opacity: 1;
-    transform: scale(1.4) rotate(8deg);
-  }
-
-  88%, 94% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(.5);
-  }
-}
-.quidditch-magic-title {
-  position: absolute;
-  width: 100%;
-  bottom: 30px;
-  text-align: center;
-  color: #efd17c;
-  font-size: 13px;
-  font-weight: bold;
-  text-shadow: 0 0 7px rgba(255,215,120,.5);
-}
-
-.quidditch-magic-subtitle {
-  position: absolute;
-  width: 100%;
-  bottom: 12px;
-  text-align: center;
-  color: #b9cfff;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-}
-
-@keyframes broomChase {
-  0% {
-    left: -45px;
-    top: 70px;
-    transform: rotate(-8deg);
-  }
-
-  45% {
-    top: 30px;
-    transform: rotate(5deg);
-  }
-
-  85% {
-    left: calc(100% - 65px);
-    top: 38px;
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    left: calc(100% + 45px);
-    top: 55px;
-    transform: rotate(8deg);
-  }
-}
-
-@keyframes snitchFlutter {
-  0% {
-    transform: translate(0, 0) scale(.85);
-    opacity: .65;
-  }
-
-  100% {
-    transform: translate(-12px, 10px) scale(1.25);
-    opacity: 1;
-  }
-}
-  /* HOGWARTS HOUSE CUP */
-
-.house-cup-subtitle {
-  text-align: center;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: #b9cfff;
-  margin-bottom: 10px;
-}
-
-.house-standing {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px 10px;
-  margin-top: 7px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(10,8,5,.38);
-  font-size: 13px;
-  transition: .3s;
-}
-.house-standing:hover {
-  border-color: rgba(170,200,255,.7);
-  box-shadow:
-    0 0 8px rgba(100,150,255,.35),
-    inset 0 0 8px rgba(100,150,255,.12);
-  transform: translateY(-1px);
-}
-.house-standing.leader {
-  border-color: rgba(255,215,120,.55);
-  box-shadow:
-    0 0 9px rgba(255,215,120,.20),
-    inset 0 0 10px rgba(255,215,120,.06);
-}
-
-.house-name {
-  font-weight: bold;
-}
-
-.house-points {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-}
-
-.house-trophy {
-  margin-right: 6px;
-  filter: drop-shadow(0 0 5px rgba(255,215,100,.8));
-}
-
-.gryffindor {
-  color: #ffd84d;
-}
-
-.ravenclaw {
-  color: #55cfff;
-}
-
-.hufflepuff {
-  color: #c77dff;
-}
-
-.slytherin {
-  color: #55d98b;
-}
-  /* SPECIAL AWARDS TRINITY */
-
-.awards-subtitle {
-  text-align: center;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: #d7c4ff;
-  margin-bottom: 14px;
-}
-
-#awards-trinity {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1.15fr 1fr;
-  align-items: end;
-  gap: 6px;
-  padding: 20px 4px 4px;
-}
-
-/* Magical alchemical triangle */
-
-#awards-trinity::before {
-  content: "△";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scaleX(1.8);
-  font-size: 95px;
-  color: rgba(190,160,255,.12);
-  text-shadow:
-    0 0 10px rgba(160,120,255,.25),
-    0 0 20px rgba(100,160,255,.15);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Podium positions */
-
-#award-second,
-#award-first,
-#award-third {
-  position: relative;
-  z-index: 1;
-}
-
-#award-first {
-  transform: translateY(-14px);
-}
-
-/* Individual student cards */
-
-.award-card {
-  display: block;
-  text-align: center;
-  padding: 9px 4px;
-  border-radius: 9px;
-  background: rgba(10,8,5,.55);
-  text-decoration: none;
-  transition: .3s;
-}
-
-.award-card:hover {
-  transform: translateY(-3px) scale(1.03);
-}
-.award-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 6px auto;
-    border: 2px solid rgba(215, 196, 255, .75);
-    box-shadow: 0 0 12px rgba(190, 160, 255, .35);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.award-card:hover .award-avatar {
-    transform: scale(1.12);
-    box-shadow: 0 0 18px rgba(215, 196, 255, .65);
-}
-/* Gold */
-
-.award-first {
-  color: #ffd84d;
-  border: 1px solid rgba(255,215,80,.65);
-  box-shadow:
-    0 0 12px rgba(255,215,80,.30),
-    inset 0 0 10px rgba(255,215,80,.08);
-}
-
-/* Silver */
-
-.award-second {
-  color: #d9e4f2;
-  border: 1px solid rgba(210,225,245,.45);
-  box-shadow: 0 0 8px rgba(190,215,255,.18);
-}
-
-/* Bronze */
-
-.award-third {
-  color: #e6a66c;
-  border: 1px solid rgba(230,166,108,.45);
-  box-shadow: 0 0 8px rgba(230,150,90,.18);
-}
-
-.award-medal {
-  display: block;
-  font-size: 24px;
-  margin-bottom: 4px;
-}
-
-.award-name {
-  display: block;
-  font-size: 10px;
-  font-weight: bold;
-  overflow-wrap: anywhere;
-}
-
-.award-count {
-  display: block;
-  margin-top: 4px;
-  font-size: 11px;
-  font-weight: bold;
-}
-/* STATUS */
-
-.status {
-  margin-top: 10px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 9px;
-  border: 1px solid rgba(90,220,150,.35);
-  background: rgba(20,80,55,.18);
-  font-size: 12px;
-}
-
-.status-light {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 5px;
-  border-radius: 50%;
-  background: #70e6a3;
-  box-shadow:
-    0 0 5px #70e6a3,
-    0 0 10px rgba(112,230,163,.6);
-}
-
-.online {
-  color: #8ff0b5;
-  font-weight: bold;
-}
-
-/* PANELS */
-
-.panel {
-  margin-top: 12px;
-  padding: 13px;
-  border-radius: 11px;
-  border: 1px solid rgba(255,215,120,.28);
-  background: rgba(25,20,15,.72);
-  box-shadow:
-    inset 0 0 18px rgba(255,200,120,.05),
-    0 0 10px rgba(0,0,0,.35);
-}
-
-.panel-title {
-  text-align: center;
-  color: #efd17c;
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 9px;
-  text-shadow: 0 0 6px rgba(255,215,120,.35);
-}
-
-.divider {
-  height: 1px;
-  margin: 8px 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,215,120,.35),
-    transparent
-  );
-}
-
-/* NOTICE */
-
-.notice {
-  font-size: 12px;
-  line-height: 1.55;
-  color: #e8e3d8;
-  text-align: center;
-}
-
-.notice-highlight {
-  color: #b9d7ff;
-}
-
-/* BUTTONS */
-
-.links {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-}
-
-.magic-button {
-  display: block;
-  padding: 9px 5px;
-  text-align: center;
-  text-decoration: none;
-  color: #cbdcff;
-  font-size: 11px;
-  border-radius: 7px;
-  border: 1px solid rgba(130,170,255,.28);
-  background: linear-gradient(
-    180deg,
-    rgba(80,110,180,.15),
-    rgba(10,10,20,.35)
-  );
-  transition: .2s;
-}
-
-.magic-button:hover {
-  color: white;
-  border-color: rgba(170,200,255,.7);
-  box-shadow:
-    0 0 8px rgba(100,150,255,.35),
-    inset 0 0 8px rgba(100,150,255,.12);
-  transform: translateY(-1px);
-}
-
-/* GRAMOPHONE */
-
-.gramophone {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  margin: 14px;
-  padding: 12px;
-  background:
-    radial-gradient(circle at center,
-      rgba(120,160,255,0.16) 0%,
-      rgba(180,120,255,0.10) 22%,
-      rgba(0,0,0,0) 70%),
-    linear-gradient(180deg,
-      rgba(10,10,18,0.92),
-      rgba(0,0,0,0.96));
-  border-radius: 14px;
-  border: 1px solid rgba(155,188,255,0.55);
-  box-shadow:
-    0 0 10px rgba(120,160,255,0.30),
-    0 0 24px rgba(120,160,255,0.18),
-    0 0 40px rgba(140,80,255,0.12),
-    inset 0 0 18px rgba(80,120,255,0.10),
-    inset 0 0 30px rgba(255,255,255,0.03);
-}
-
-.gramophone-title {
-  position: relative;
-  color: #b7ccff;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-shadow:
-    0 0 4px rgba(120,160,255,0.95),
-    0 0 10px rgba(120,160,255,0.65),
-    0 0 18px rgba(180,120,255,0.45);
-}
-
-.gramophone-subtitle {
-  position: relative;
-  margin-bottom: 12px;
-  color: #e1ebff;
-  font-size: 12px;
-  letter-spacing: 1px;
-  opacity: 0.92;
-  text-shadow:
-    0 0 6px rgba(120,160,255,0.45);
-}
-
-.gramophone audio {
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: 230px;
-  height: 32px;
-  margin: 11px auto 0;
-  padding: 10px;
-  border-radius: 14px;
-  background:
-    linear-gradient(180deg,
-      rgba(120,160,255,0.10),
-      rgba(0,0,0,0.28));
-  box-shadow:
-    inset 0 0 14px rgba(120,160,255,0.12),
-    0 0 14px rgba(120,160,255,0.16);
-  filter:
-    drop-shadow(0 0 6px rgba(120,160,255,0.35))
-    brightness(1.05);
-}
-/* MAINTENANCE */
-
-.system-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 2px;
-  font-size: 11px;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-
-.system-row:last-child {
-  border-bottom: none;
-}
-
-.system-ok {
-  color: #86e5aa;
-}
-
-.system-magic {
-  color: #c3b1ff;
-}
-
-/* FOOTER */
-
-.footer {
-  margin-top: 13px;
-  padding: 13px 7px;
-  text-align: center;
-  color: #c5b88f;
-  font-size: 10px;
-  line-height: 1.6;
-  border-top: 1px solid rgba(255,215,120,.20);
-}
-
-.seal {
-  color: #efd17c;
-  font-size: 12px;
-}
-
-.cheese {
-  margin-top: 5px;
-  opacity: .75;
-}
-
-/* SMALL SCREENS */
-
-@media (max-width: 300px) {
-  body {
-    padding: 6px;
-  }
-
-  .title {
-    font-size: 18px;
-  }
-
-  .links {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
 <div class="castle">
+    
+    <!-- CASTLE HEADER -->
 
-  <!-- CASTLE HEADER -->
+    <div class="header">
+        
+        <div class="crystal-ball">
+            <span class="ball">🦁</span>
+            <span class="sparkle sparkle-1">✨</span>
+            <span class="sparkle sparkle-2">✦</span>
+            <span class="sparkle sparkle-3">✨</span>
+        </div>
 
-  <div class="header">
-    <div class="crystal-ball">
-  <span class="ball">🐉</span>
-  <span class="sparkle sparkle-1">✨</span>
-  <span class="sparkle sparkle-2">✦</span>
-  <span class="sparkle sparkle-3">✨</span>
-</div>
-    <span class="magic-impact impact-left">💥</span>
-<span class="magic-impact impact-right">💥</span>
-    <div class="castle-icon">🏰</div>
+        <span class="magic-impact impact-left">💥</span>
+        <span class="magic-impact impact-right">💥</span>
 
-    <div class="title">
-  ℌ𝔬𝔤𝔴𝔞𝔯𝔱𝔰 ℌ𝔦𝔤𝔥 𝔖𝔠𝔥𝔬𝔬𝔩
-</div>
+        <div class="castle-icon">🏰</div>
 
-    <div class="subtitle">
-      
+        <div class="title">
+            ℌ𝔬𝔤𝔴𝔞𝔯𝔱𝔰 ℌ𝔦𝔤𝔥 𝔖𝔠𝔥𝔬𝔬𝔩
+        </div>
+
+        <div class="subtitle"></div>
+
     </div>
-  </div>
+
+</div>
+
+</body>
+</html>
 <!-- CURRENT TERM -->
 
 <div class="current-term">
@@ -895,9 +56,222 @@ body {
   </div>
 
   <div class="term-description">
-    A season where strategies flourish in full bloom... and the Fizz sparkles at its peak. ✨🫧
+  A season where strategies flourish in full bloom... and the Fizz sparkles at its peak.
+  <span class="emoji">✨🫧</span>
+</div>
+<!-- SYSTEM STATUS -->
+
+<div class="status">
+  <span class="status-light"></span>
+  CASTLE SYSTEMS:
+  <span class="online">ONLINE</span>
+</div>
+<!-- SORTING HAT - NEWEST STUDENTS -->
+
+<div class="sorting-hat-panel">
+  <div class="panel-title">
+    🎩 Welcome... The Sorting Hat<br>
+    Awaits You 🧀
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sorting-hat-intro">
+    A seat awaits... The Hat has not yet spoken.
+  </div>
+
+  <div id="newest-students">
+    <div class="sorting-hat-loading">
+      ✨ Consulting the Sorting Hat...
+    </div>
   </div>
 </div>
+<script>
+/*
+========================================
+🎩 SORTING HAT CONTROL ROOM
+========================================
+*/
+
+const CLUB_SLUG ='Hogwarts-High-School';
+const STUDENTS_TO_SHOW = 3;
+const STUDENT_REFRESH_MS = 60000;
+
+
+/*
+========================================
+🪄 SORTING HAT MACHINERY
+========================================
+*/
+
+async function loadNewestStudents() {
+
+  const container =
+    document.getElementById("newest-students");
+
+  try {
+
+    const response = await fetch(
+      "https://api.chess.com/pub/club/" +
+      CLUB_SLUG +
+      "/members"
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        "Chess.com returned HTTP " +
+        response.status +
+        " " +
+        response.statusText
+      );
+    }
+
+    const data = await response.json();
+
+    /*
+    Combine all membership groups returned
+    by the Chess.com API.
+    */
+
+    const allMembers = [
+      ...(data.weekly || []),
+      ...(data.monthly || []),
+      ...(data.all_time || [])
+    ];
+
+
+    /*
+    Remove duplicate usernames.
+    */
+
+    const uniqueMembers =
+      Array.from(
+        new Map(
+          allMembers.map(member => [
+            member.username.toLowerCase(),
+            member
+          ])
+        ).values()
+      );
+
+
+    /*
+    Newest Hogwarts students first.
+    */
+
+    uniqueMembers.sort(
+      (a, b) =>
+        (b.joined || 0) -
+        (a.joined || 0)
+    );
+
+
+    const newestStudents =
+      uniqueMembers.slice(
+        0,
+        STUDENTS_TO_SHOW
+      );
+
+
+    /*
+    Build the Sorting Hat cards.
+    */
+
+    container.innerHTML = "";
+
+    newestStudents.forEach(student => {
+
+      const card =
+        document.createElement("a");
+
+      card.href =
+        "https://www.chess.com/member/" +
+        encodeURIComponent(student.username);
+
+      card.target = "_blank";
+
+      card.className =
+        "sorting-student-card";
+
+
+      const username =
+        document.createElement("div");
+
+      username.className =
+        "sorting-student-name";
+
+      username.textContent =
+        "🧙 @" + student.username;
+
+
+      const status =
+        document.createElement("div");
+
+      status.className =
+        "sorting-student-status";
+
+      status.textContent =
+        "Awaiting...";
+
+
+      card.appendChild(username);
+      card.appendChild(status);
+
+      container.appendChild(card);
+
+    });
+
+
+    /*
+    Emergency response if the API
+    returns no students.
+    */
+
+    if (newestStudents.length === 0) {
+
+      container.innerHTML =
+        '<div class="sorting-hat-empty">' +
+        '🎩 The Sorting Hat is waiting...' +
+        '</div>';
+
+    }
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "Sorting Hat error:",
+      error
+    );
+
+    container.innerHTML =
+      '<div class="sorting-hat-error">' +
+      '🎩 <strong>Sorting Hat Diagnostic</strong><br><br>' +
+      'The student siphon failed.<br>' +
+      '<span class="sorting-hat-error-detail">' +
+      error.name + ': ' + error.message +
+      '</span>' +
+      '</div>';
+
+  }
+
+}
+
+
+/*
+========================================
+✨ AWAKEN THE SORTING HAT
+========================================
+*/
+
+loadNewestStudents();
+
+setInterval(
+  loadNewestStudents,
+  STUDENT_REFRESH_MS
+);
+</script>
 <!-- BEGIN YOUR JOURNEY -->
 
 <div class="journey-card">
@@ -906,90 +280,136 @@ body {
   </div>
 
   <div class="journey-subtitle">
-    🐸❓ First-Year Students: Start here 👇
-  </div>
-
-  <a class="journey-link" href="https://www.chess.com/clubs/forum/view/sorting-ceremony" target="_blank">
-    ✦ 🎩 Sorting Hat Ceremony
-  </a>
-
-  <a class="journey-link" href="https://www.chess.com/clubs/forum/view/castle-rules-and-conduct" target="_blank">
-    ✦ 📜 Castle Rules &amp; Conduct
-  </a>
-</div>
-  <!-- SYSTEM STATUS -->
-
-  <div class="status">
-    <span class="status-light"></span>
-    CASTLE SYSTEMS:
-    <span class="online">ONLINE</span>
-  </div>
-
-
- 
-
- 
-  <!-- Panel Section -->
-  <div class="panel">
-
-    <div class="panel-title" style="color:#55cfff;">
-  🗺️ OᖴᖴIᑕIᗩᒪ ᑕᗩᔕTᒪE ᗰᗩᑭ
+  🐸❓ <span class="first-year-label">First-Year Students:</span> Start here 👇
 </div>
 
-    <div class="divider"></div>
+<a class="journey-link" href="https://www.chess.com/clubs/forum/view/sorting-ceremony" target="_blank">
+  <span class="journey-marker">✦ 🎩</span>Sorting Hat Ceremony
+</a>
 
-    <div class="links">
+<a class="journey-link" href="https://www.chess.com/clubs/forum/view/castle-rules-and-conduct" target="_blank">
+  <span class="journey-marker">✦ 📜</span>Castle Rules &amp; Conduct
+</a>
+</div>
+<!-- OFFICIAL CASTLE MAP -->
 
-      <a class="magic-button"
-         href="https://www.chess.com/clubs/about/hogwarts-high-school"
-         target="_blank">
-         🏰 About Us
-      </a>
-
-      <a class="magic-button"
-         href="https://www.chess.com/clubs/forum/view/owl-news-1"
-         target="_blank">
-         🦉 Owl News
-      </a>
-
-      <a class="magic-button"
-         href="https://www.chess.com/clubs/upcomingevents/hogwarts-high-school"
-         target="_blank">
-         🧹 Quidditch
-      </a>
-
-      <a class="magic-button"
-          href="https://www.chess.com/clubs/forum/view/house-cups-prizes-2025"
-         target="_blank">
-         🏆 House Cup
-      </a>
-
-      <a class="magic-button"
-         href="https://www.chess.com/announcements/view/quidditch-season-returns-to-hogwarts-high-school"
-         target="_blank">
-         🪄 Special Events
-      </a>
-
-      <a class="magic-button"
-         href="https://www.chess.com/clubs/forum/hogwarts-high-school"
-         target="_blank">
-         📚 Castle Archives
-      </a>
-
-    </div>
-
+<div class="castle-map">
+  <div class="castle-map-title">
+    🗺️ OᖴᖴIᑕIᗩᒪ ᑕᗩᔕTᒪE ᗰᗩᑭ
   </div>
 
+  <div class="castle-map-divider"></div>
+<a class="castle-map-link"
+   href="https://www.chess.com/clubs/about/hogwarts-high-school"
+   target="_blank">
+  🏰 About Us
+</a>
+    <a class="castle-map-link"
+   href="https://www.chess.com/clubs/forum/view/owl-news-1"
+   target="_blank">
+  🦉 Owl News
+</a>
+<a class="castle-map-link"
+   href="https://www.chess.com/clubs/upcomingevents/hogwarts-high-school"
+   target="_blank">
+  🧹 Quidditch
+</a>
+<a class="castle-map-link"
+   href="https://www.chess.com/clubs/forum/view/house-cups-prizes-2025"
+   target="_blank">
+  🏆 House Cup
+</a>
+<a class="castle-map-link"
+   href="https://www.chess.com/announcements/view/quidditch-season-returns-to-hogwarts-high-school"
+   target="_blank">
+  🪄 Special Events
+</a>
+<a class="castle-map-link"
+   href="https://www.chess.com/clubs/forum/hogwarts-high-school"
+   target="_blank">
+  📚 Castle Archives
+</a>    
+</div>
+    
+<!-- HOGWARTS HOUSE CUP -->
+
+<div class="house-cup">
+  <div class="house-cup-title">
+    🏆 Hogwarts House Cup
+  </div>
+
+  <div class="house-cup-divider"></div>
+
+  <div class="house-cup-subtitle">
+    CURRENT HOUSE STANDINGS
+  </div>
+
+  <div id="house-cup-standings">
+
+    <!-- FUTURE: Insert Gryffindor House forum URL here -->
+
+    <a class="house-standing gryffindor"
+       href="https://www.chess.com/clubs/forum/view/house-gryffindor"
+       target="_blank">
+      <span class="house-name">
+        🦁 Gryffindor
+      </span>
+
+      <span class="house-points">
+        17
+      </span>
+    </a>
+<!-- FUTURE: Insert Ravenclaw House forum URL here -->
+
+<a class="house-standing ravenclaw"
+   href="https://www.chess.com/clubs/forum/view/house-ravenclaw-1"
+   target="_blank">
+  <span class="house-name">
+    🦅 Ravenclaw
+  </span>
+
+  <span class="house-points">
+    12
+  </span>
+</a>
+<!-- FUTURE: Insert Slytherin House forum URL here -->
+
+<a class="house-standing slytherin"
+   href="https://www.chess.com/clubs/forum/view/house-slytherin-5"
+   target="_blank">
+  <span class="house-name">
+    🐍 Slytherin
+  </span>
+
+  <span class="house-points">
+    9
+  </span>
+</a>
+<!-- FUTURE: Insert Hufflepuff House forum URL here -->
+
+<a class="house-standing hufflepuff"
+   href="https://www.chess.com/clubs/forum/view/house-hufflepuff-1"
+   target="_blank">
+  <span class="house-name">
+    🦡 Hufflepuff
+  </span>
+
+  <span class="house-points">
+    7
+  </span>
+</a>
+  </div>
+</div>
 <!-- QUIDDITCH COUNTDOWN -->
 
-<div class="panel" id="quidditch-panel">
+<div class="quidditch-panel" id="quidditch-panel">
   <div id="quidditch-countdown-view">
 
-  <div class="panel-title">
+  <div class="quidditch-panel-title">
     🧹 Next Quidditch Match 🏟️
   </div>
 
-  <div class="divider"></div>
+  <div class="quidditch-divider"></div>
 
   <div id="match-name" style="
     text-align:center;
@@ -1028,7 +448,7 @@ body {
  <a id="match-link"
    href="https://www.chess.com/clubs/upcomingevents/hogwarts-high-school"
    target="_blank"
-   class="magic-button"
+   class="quidditch-link"
    style="max-width:230px; margin:auto;">
      🏟️ ENTER THE QUIDDITCH STADIUM
   </a>
@@ -1063,13 +483,13 @@ EDIT THESE THREE LINES FOR EACH MATCH
 */
 
 const matchName =
-  "_Demons vs Hogwarts High School";
+  "Snape's Last Stand ⚗️";
 
 const matchDate =
-  "2026-08-01T20:00:00+02:00";
+  "2026-08-28T04:15:00+02:00";
 
 const matchLink =
-  "https://www.chess.com/clubs/upcomingevents/hogwarts-high-school";
+  "https://www.chess.com/club/matches/hogwarts-high-school/1987590";
 
 
 /*
@@ -1172,111 +592,7 @@ setInterval(() => {
 
 }, 20000);
 </script>
-  <!-- HOGWARTS HOUSE CUP -->
-
-<a href="https://www.chess.com/clubs/forum/view/our-school-scoreboard-2"
-   target="_blank"
-   style="text-decoration:none; color:inherit; display:block;">
-
-<div class="panel" id="house-cup-panel">
-
-  <div class="panel-title">
-    🏆 Hogwarts House Cup
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="house-cup-subtitle">
-    CURRENT HOUSE STANDINGS
-  </div>
-
-  <div id="house-cup-standings"></div>
-
-</div>
-  </a>
-  <script>
-
-/*
-========================================
-🏆 HOUSE CUP CONTROL ROOM
-EDIT ONLY THESE FOUR NUMBERS
-========================================
-*/
-
-const houseCupPoints = {
-  gryffindor: 17,
-  ravenclaw: 12,
-  hufflepuff: 7,
-  slytherin: 9
-};
-
-
-/*
-========================================
-✨ HOUSE CUP MAGICAL MACHINERY
-NO HEADMASTERIAL TINKERING REQUIRED
-========================================
-*/
-
-const houses = [
-  {
-    name: "House Gryffindor",
-    emoji: "🦁",
-    house: "gryffindor",
-    points: houseCupPoints.gryffindor
-  },
-  {
-    name: "House Ravenclaw",
-    emoji: "🦅",
-    house: "ravenclaw",
-    points: houseCupPoints.ravenclaw
-  },
-  {
-    name: "House Hufflepuff",
-    emoji: "🦡",
-    house: "hufflepuff",
-    points: houseCupPoints.hufflepuff
-  },
-  {
-    name: "House Slytherin",
-    emoji: "🐍",
-    house: "slytherin",
-    points: houseCupPoints.slytherin
-  }
-];
-
-houses.sort((a, b) => b.points - a.points);
-
-const standings =
-  document.getElementById("house-cup-standings");
-
-houses.forEach((house, index) => {
-
-  const row = document.createElement("div");
-
-  row.className =
-    "house-standing " +
-    house.house +
-    (index === 0 ? " leader" : "");
-
-  row.innerHTML =
-    '<span class="house-name">' +
-    (index === 0
-      ? '<span class="house-trophy">🏆</span>'
-      : '') +
-    house.name + " " +
-    house.emoji +
-    '</span>' +
-    '<span class="house-points">' +
-    house.points +
-    '</span>';
-
-  standings.appendChild(row);
-
-});
-
-</script>
-  <!-- SPECIAL AWARDS TRINITY -->
+    <!-- SPECIAL AWARDS TRINITY -->
 
 <div class="panel" id="awards-panel">
 
@@ -1333,7 +649,6 @@ const specialAwards = [
     profile: "https://www.chess.com/member/x_bentley_x"
   }
 ];
-
 
 /*
 ========================================
@@ -1408,280 +723,42 @@ const avatar = await getChessAvatar(entry.student.name);
 });
 
 </script>
-  <!-- SORTING HAT - NEWEST STUDENTS -->
 
-<div class="panel">
+  <!-- WIZARD GRAMOPHONE -->
 
-  <div class="panel-title">
-    🎩 Welcome... The Sorting Hat<br>
-    Awaits You 🧀
-  </div>
+  <div class="panel gramophone">
 
-  <div class="divider"></div>
-
-  <div style="
-    text-align:center;
-    font-size:12px;
-    line-height:1.4;
-    color:#d8d0c2;
-    margin-bottom:12px;
-  ">
-    A seat awaits... The Hat has not yet spoken.
-  </div>
-
-  <div id="newest-students">
-    <div style="
-      text-align:center;
-      font-size:11px;
-      color:#b9cfff;
-      padding:10px;
-    ">
-      ✨ Consulting the Sorting Hat...
+    <div class="gramophone-title">
+      🎧 The Wizard Gramophone
     </div>
+
+    <div class="gramophone-subtitle">
+      "...the castle begins to SINGH 🎤..."
+    </div>
+
+    <audio controls>
+      <source
+        src="https://files.catbox.moe/7t77sn.mp3"
+        type="audio/mpeg">
+    </audio>
+
+    <div style="
+      margin-top:10px;
+      font-size:9px;
+      color:rgba(190,210,255,.65);
+      letter-spacing:1px;
+    ">
+      ✨ MAGICALLY FUELLED BY<br>
+      MASTER MAHARAJA SINGH 🧞🪔✨
+    </div>
+
   </div>
-
-</div>
-
-
-<script>
-
-/*
-========================================
-🎩 SORTING HAT CONTROL ROOM
-========================================
-*/
-
-const CLUB_SLUG = 'hogwarts-high-school';
-const STUDENTS_TO_SHOW = 3;
-const STUDENT_REFRESH_MS = 60000;
-
-
-/*
-========================================
-🪄 SORTING HAT MACHINERY
-========================================
-*/
-
-async function loadNewestStudents() {
-
-  const container =
-    document.getElementById("newest-students");
-  
-
-  try {
-
-  const response = await fetch(
-  "https://api.chess.com/pub/club/hogwarts-high-school/members"
-);
-
-    if (!response.ok) {
-  throw new Error(
-    "Chess.com returned HTTP " +
-    response.status +
-    " " +
-    response.statusText
-  );
-}
-
-    const data = await response.json();
-
-    /*
-    Combine all membership groups returned
-    by the Chess.com API.
-    */
-
-    const allMembers = [...(data.weekly || []), ...(data.monthly || []), ...(data.all_time || [])];
-
-
-    /*
-    Remove duplicate usernames.
-    */
-
-    const uniqueMembers =
-      Array.from(
-        new Map(
-          allMembers.map(member => [
-           member.username.toLowerCase(),
-            member
-          ])
-        ).values()
-      );
-
-
-    /*
-    Newest Hogwarts students first.
-    */
-
-    uniqueMembers.sort(
-      (a, b) =>
-       (b.joined || 0) -
-(a.joined || 0)
-    );
-
-
-    const newestStudents =
-      uniqueMembers.slice(
-        0,
-        STUDENTS_TO_SHOW
-      );
-
-
-    /*
-    Build the Sorting Hat cards.
-    */
-
-    container.innerHTML = "";
-
-
-    newestStudents.forEach(student => {
-
-      const card =
-        document.createElement("a");
-
-      card.href =
-        "https://www.chess.com/member/" +
-       encodeURIComponent(student.username);
-      card.target = "_blank";
-
-      card.style.cssText = `
-        display:block;
-        padding:10px;
-        margin-top:7px;
-        border-radius:9px;
-        border:1px solid rgba(255,215,120,.25);
-        background:rgba(10,8,5,.38);
-        text-decoration:none;
-        transition:.2s;
-      `;
-
-
-      card.onmouseenter = function() {
-
-        this.style.borderColor =
-          "rgba(255,215,120,.65)";
-
-        this.style.boxShadow =
-          "0 0 8px rgba(255,210,100,.18)";
-
-        this.style.transform =
-          "translateY(-1px)";
-
-      };
-
-
-      card.onmouseleave = function() {
-
-        this.style.borderColor =
-          "rgba(255,215,120,.25)";
-
-        this.style.boxShadow =
-          "none";
-
-        this.style.transform =
-          "none";
-
-      };
-
-
-      const username =
-        document.createElement("div");
-
-      username.style.cssText = `
-        color:#70e6a3;
-        font-size:13px;
-        margin-bottom:5px;
-      `;
-
-      username.textContent =
-       "🧙 @" + student.username;
-
-
-      const status =
-        document.createElement("div");
-
-      status.style.cssText = `
-        text-align:center;
-        color:#efd17c;
-        font-size:12px;
-        font-weight:bold;
-      `;
-
-      status.textContent =
-        "Awaiting...";
-
-
-      card.appendChild(username);
-      card.appendChild(status);
-
-      container.appendChild(card);
-
-    });
-
-
-    /*
-    Emergency response if the API
-    returns no students.
-    */
-
-    if (newestStudents.length === 0) {
-
-      container.innerHTML =
-        '<div style="' +
-        'text-align:center;' +
-        'color:#efd17c;' +
-        'font-size:11px;' +
-        'padding:10px;' +
-        '">' +
-        '🎩 The Sorting Hat is waiting...' +
-        '</div>';
-
-    }
-
-  }
-
-  catch (error) {
-
-  console.error("Sorting Hat error:", error);
-
-  container.innerHTML =
-    '<div style="' +
-    'text-align:center;' +
-    'color:#ffcf70;' +
-    'font-size:11px;' +
-    'line-height:1.5;' +
-    'padding:10px;' +
-    '">' +
-    '🎩 <strong>Sorting Hat Diagnostic</strong><br><br>' +
-    'The student siphon failed.<br>' +
-    '<span style="color:#ff8f8f;">' +
-    error.name + ': ' + error.message +
-    '</span>' +
-    '</div>';
-  }
-
-}
-
-
-/*
-========================================
-✨ AWAKEN THE SORTING HAT
-========================================
-*/
-
-loadNewestStudents();
-
-setInterval(
-  loadNewestStudents,
-  STUDENT_REFRESH_MS
-);
-
-</script>
-   <!-- HEADMASTER NOTICE -->
+<!-- HEADMASTER NOTICE -->
 
   <div class="panel">
 
-    <div class="panel-title">
-      📜 Headmaster's Notice Board
+  <div class="panel-title">
+    
     </div>
 
     <div class="divider"></div>
@@ -1690,62 +767,11 @@ setInterval(
       
 
   <div class="divider"></div>
-
-  <div class="notice-highlight">
-    ✦ Are you feeling unnecessarily stressed this summer? 😫🌞
-  </div>
-
-  <br>
-
-  Perhaps the examinations 📚 were more exhausting than expected...
-  or maybe your dream trip to Disney World 🎢 somehow became a camping trip ⛺ instead.
-  Have no fear,
-
-  <br><br>
-
-  <span class="notice-highlight">
-    Doctor von Humblebee 🐝
-  </span>
-
-  <br><br>
-
-  is here! Every student is warmly welcome at the
-  🏰 Castle Clinique for Cognitive Care.
-
-  <br><br>
-
-  Come in, take a seat 🪑, enjoy a cup of tea ☕, and remember...
-
-  <br><br>
-
-  <em>💚 One difficult day does not define a great wizard or witch.</em>
-
-  <br><br>
-
-  The sofa is comfortable, the biscuits 🍪 are fresh,
-  and the Swiss Cheese Methods™ 🧀 are standing by!
-
-  <br><br>
-
-<a href="https://www.chess.com/announcements/view/castle-clinique-for-cognitive-care"
-   target="_blank">
-  <img src="Humblebee.png"
-       alt="Doctor von Humblebee - Castle Clinique for Cognitive Care"
-       style="width:100%; max-width:270px; height:auto; border-radius:6px;">
-</a>
-
-<br><br>
-
-<span style="color:#ffd84d; font-weight:bold;">
-  — Doctor von Humblebee 🐝
-</span>
-
-</div>
     
   </div>
 <!-- SPECIAL ANNOUNCEMENTS -->
 
-<div class="panel">
+<div class="panel special-announcements-panel">
 
   <div class="panel-title">
     🪄 Special Announcements
@@ -1783,125 +809,30 @@ setInterval(
   <div class="notice-highlight">
     
   </div>
+    
+<!-- FOOTER -->
 
-  
-</div>
-   <!-- CASTLE NETWORK -->
-<!-- 𝓗𝓸𝓰𝔀𝓪𝓻𝓽𝓼 𝓗𝓲𝓰𝓱 𝓢𝓬𝓱𝓸𝓸𝓘𝓼 𝓘𝓷𝓽𝓮𝓻𝓬𝓸𝓷𝓷𝓮𝓬𝓽𝓮𝓭 𝓒𝓪𝓼𝓽𝓵𝓮 𝓝𝓮𝓽𝔀𝓸𝓻𝓴 -->
-<div style="margin: 14px; padding: 12px; background: rgba(0,0,0,0.32); border-radius: 10px; border: 1px solid rgba(255,215,120,0.28); box-shadow: inset 0 0 12px rgba(255,215,120,0.06),0 0 8px rgba(0,0,0,0.25);"><!-- Title -->
-<div style="text-align: center; font-weight: bold; color: #f5d98b; margin-bottom: 6px; line-height: 1.15; text-shadow: 0 0 6px rgba(255,215,120,0.22);"><a href="https://www.chess.com/clubs/forum/view/welcome-to-have-you-been-looking-for-a-solid-and-progressive-ed" target="_blank" rel="noopener">🦉<span style="color: #c2e0f4;"> 𝓗𝓸𝓰𝔀𝓪𝓻𝓽𝓼 𝓗𝓲𝓰𝓱 𝓢𝓬𝓱𝓸𝓸𝓘𝓼 𝓘𝓷𝓽𝓮𝓻𝓬𝓸𝓷𝓷𝓮𝓬𝓽𝓮𝓭 𝓒𝓪𝓼𝓽𝓵𝓮 𝓝𝓮𝓽𝔀𝓸𝓻𝓴 </span> 🛜</a></div>
-<!-- Subtitle -->
-<div style="text-align: center; font-size: 12px; opacity: 0.88; margin-bottom: 10px; color: #d7c39a;"><span style="font-size: 14px;">Deepen your adventure, sign up today...</span></div>
-<!-- Links -->
-<div style="text-align: center; line-height: 1.75;"><!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🪶</div>
-<!-- Gringotts -->
-<div style="font-size: 22px; color: #e6d58a; letter-spacing: 0.5px;"><a href="https://www.chess.com/club/gringotts-and-magical-trading" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #fbeeb8; text-shadow: 0 0 8px rgba(255,215,120,0.45);"> 🏦 Gringotts </span> </a></div>
-<div style="font-size: 14px; margin-top: 2px; color: #c9bd86;"><a href="https://www.chess.com/club/gringotts-and-magical-trading" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="color: #fbeeb8; text-shadow: 0 0 8px rgba(255,215,120,0.35);"> &amp; Magical Trading </span> </a></div>
-<!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🦉</div>
-<!-- Hagrid's Hut -->
-<div><a href="https://www.chess.com/clubs/about/hagrids-hut" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #e0563f; text-shadow: 0 0 6px rgba(224,86,63,0.45);"> 🛖 H&Aacute;GŔID&rsquo;S </span> <span style="font-size: 14px; color: #7ed957; text-shadow: 0 0 6px rgba(126,217,87,0.45);"> HUT </span> </a></div>
-<!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🦉</div>
-<!-- Hogwarts Library -->
-<div><a href="https://www.chess.com/clubs/about/hogwarts-library-reception-desk" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #eedb71; letter-spacing: 1px; text-shadow: 0 0 8px rgba(238,219,113,0.45);"> ⚖️🅷🅾🅶🆆🅰🆁🆃🆂&nbsp; &nbsp;🅻🅸🅱🆁🅰🆁🆈 </span> </a></div>
-<!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🦉</div>
-<!-- Honeydukes -->
-<div><a href="https://www.chess.com/clubs/about/group-aa057789f073d9849345fa262e24f9c2" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #ff4fa3; text-shadow: 0 0 6px rgba(255,79,163,0.45);"> 🍭HONEY </span> <span style="font-size: 14px; color: #68d391; text-shadow: 0 0 6px rgba(104,211,145,0.45);"> DUKES </span> </a></div>
-<!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🦉</div>
-<!-- Room of Requirement -->
-<div><a href="https://www.chess.com/clubs/about/the-room-of-requirement" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #17efe6; text-shadow: 0 0 8px rgba(23,239,230,0.45);"> 💫 The Room of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Requirement</span></a>&nbsp;</div>
-<!-- Owl Separator -->
-<div style="opacity: 0.65; font-size: 12px; color: #fbeeb8;">🦉</div>
-<!-- Weasleys -->
-<div><a href="https://www.chess.com/clubs/about/weasleys-wizard-wheezes-1" target="_blank" rel="noopener" style="text-decoration: none; transition: 0.25s ease;"> <span style="font-size: 14px; color: #e67e23; text-shadow: 0 0 8px rgba(230,126,35,0.45);"> 🧨 𝐖𝐞𝐚𝐬𝐥𝐞𝐲𝐬&rsquo; 𝐖𝐢𝐳𝐚𝐫𝐝&nbsp; &nbsp; &nbsp; 𝐖𝐡𝐞𝐞𝐳𝐞𝐬 </span> </a></div>
-</div>
-</div>
-  <!-- MAINTENANCE SYSTEMS -->
+<div class="footer">
 
-  <div class="panel">
-
-    <div class="panel-title">
-      ☄️ The Winzengamot
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="system-row">
-      <span>The Headmaster🧙‍♂️🪄</span>
-      <span class="system-ok">ONLINE ✔️</span>
-    </div>
-
-    <div class="system-row">
-      <span>Castle Network</span>
-      <span class="system-ok">CONNECTED 🛜</span>
-    </div>
-
-    <div class="system-row">
-      <span>Wizard Gramophone</span>
-      <span class="system-magic">ENCHANTED ✨</span>
-    </div>
-
-    <div class="system-row">
-      <span>Cheese Reserves</span>
-      <span class="system-ok">MAXIMUM 🧀</span>
-    </div>
-
+  <div class="seal">
+    ⭐ Lovingly Created and Maintained by our
+    <span class="footer-gold">🧙₩łⱫ₳ⱤĐ🔮₵ØɄ₦₵łⱠ🧙‍♂️</span>
   </div>
 
-
-  <!-- WIZARD GRAMOPHONE -->
-
-  <div class="panel gramophone">
-
-    <div class="gramophone-title">
-      🎧 The Wizard Gramophone
-    </div>
-
-    <div class="gramophone-subtitle">
-      "...the castle begins to SINGH 🎤..."
-    </div>
-
-    <audio controls>
-      <source
-        src="https://files.catbox.moe/7t77sn.mp3"
-        type="audio/mpeg">
-    </audio>
-
-    <div style="
-      margin-top:10px;
-      font-size:9px;
-      color:rgba(190,210,255,.65);
-      letter-spacing:1px;
-    ">
-      ✨ MAGICALLY FUELLED BY<br>
-      MASTER MAHARAJA SINGH 🧞🪔✨
-    </div>
-
+  <div>
+    Hogwarts High School
+    Interconnected Castle Network
   </div>
 
+  <div class="cheese">
+    "The answer is found
+    en passant in the plumbing... ⛲"
+  </div>
 
-  <!-- FOOTER -->
-
-  <div class="footer">
-
-    <div class="seal">
-      ✦ By Order of the Headmaster ✦
-    </div>
-
-    <div>
-      Hogwarts High School
-      Interconnected Castle Network
-    </div>
-
-    <div class="cheese">
-      "The answer is found
-      en passant in the plumbing... 🔧"
-    </div>
-
+  <div class="footer-signature">
+    <span class="footer-purple">Headmaster</span>
+    &
+    <span class="footer-purple">Professor McGonagall</span>
   </div>
 
 </div>
