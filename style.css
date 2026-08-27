@@ -1023,9 +1023,10 @@ body {
   height: 100%;
 }
 .cheese-slice {
-  fill: transparent;
+  fill: rgba(255, 216, 77, 0.35);
   stroke: none;
 }
+
 /* FOOTER */
 
 .footer {
