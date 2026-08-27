@@ -1022,6 +1022,10 @@ body {
   width: 100%;
   height: 100%;
 }
+.cheese-slice {
+  fill: transparent;
+  stroke: none;
+}
 /* FOOTER */
 
 .footer {
