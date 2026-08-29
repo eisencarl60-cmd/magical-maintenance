@@ -1030,6 +1030,12 @@ body {
   font-size: 8px;
   text-anchor: middle;
 }
+.zodiac-number {
+  font-size: 6px;
+  font-weight: bold;
+  fill: #ffd84d;
+  text-anchor: middle;
+}
 .cheese-subtitle {
   color: #8b7355;
   font-size: 9px;
