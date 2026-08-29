@@ -1038,6 +1038,8 @@ body {
   font-size: 6px;
   font-weight: bold;
   fill: #201d19;
+  stroke: #201d19;
+  stroke-width: 0.3px;
   text-anchor: middle;
 }
 .cheese-subtitle {
