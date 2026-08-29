@@ -1026,6 +1026,10 @@ body {
   fill: rgba(255, 216, 77, 0.35);
   stroke: none;
 }
+.zodiac-emoji {
+  font-size: 8px;
+  text-anchor: middle;
+}
 .cheese-subtitle {
   color: #8b7355;
   font-size: 9px;
