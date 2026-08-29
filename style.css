@@ -1037,7 +1037,7 @@ body {
 .zodiac-number {
   font-size: 6px;
   font-weight: bold;
-  fill: #ffd84d;
+  fill: red;
   text-anchor: middle;
 }
 .cheese-subtitle {
