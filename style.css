@@ -1027,7 +1027,8 @@ body {
   stroke: none;
 }
 .cheese-subtitle {
-  font-size: 11px;
+  color: #8b7355;
+  font-size: 9px;
   font-weight: normal;
   margin-top: 3px;
 }
