@@ -1031,6 +1031,8 @@ body {
   font-size: 8px;
   text-anchor: middle;
   fill: red;
+  stroke: white;
+  stroke-width: 0.5px;
 }
 .zodiac-number {
   font-size: 6px;
