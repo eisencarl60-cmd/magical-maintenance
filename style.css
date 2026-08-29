@@ -1042,7 +1042,9 @@ body {
   font-weight: normal;
   margin-top: 3px;
 }
-
+.cheese-slice[data-zodiac="aries"] {
+  fill: rgba(142, 65, 213, 0.8);
+}
 /* FOOTER */
 
 .footer {
