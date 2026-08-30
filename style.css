@@ -1047,7 +1047,8 @@ body {
   cursor: pointer;
 }  
 .zodiac-wedge:hover .cheese-slice {
-  filter: drop-shadow(0 0 1.5px #fff3b0);
+  stroke: #fff3b0;
+  stroke-width: 0.8px;
 }
 
 /* FOOTER */
