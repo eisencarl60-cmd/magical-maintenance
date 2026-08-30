@@ -1048,6 +1048,14 @@ body {
   font-weight: normal;
   margin-top: 3px;
 }
+
+.zodiac-wedge {
+  cursor: pointer;
+}
+
+.zodiac-wedge:hover .cheese-slice {
+  opacity: 0.82;
+}
 /* FOOTER */
 
 .footer {
