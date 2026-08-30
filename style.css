@@ -1053,7 +1053,9 @@ body {
   cursor: pointer;
 }
 
-.zodiac-wedge:hover .cheese-slice {
+.zodiac-wedge:hover .cheese-slice,
+.zodiac-wedge:hover .zodiac-emoji,
+.zodiac-wedge:hover .zodiac-number {
   filter: brightness(1.2);
 }
 /* FOOTER */
