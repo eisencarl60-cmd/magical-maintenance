@@ -1043,12 +1043,23 @@ body {
   font-weight: normal;
   margin-top: 3px;
 }
+
 .zodiac-wedge {
   cursor: pointer;
-}  
+}
+
 .zodiac-wedge:hover .cheese-slice {
   stroke: #8e41d5;
   stroke-width: 0.8px;
+}
+.humblebee-hover {
+  opacity: 0;
+  pointer-events: none;
+  font-size: 5px;
+}
+
+.zodiac-wedge:hover ~ .humblebee-hover {
+  opacity: 1;
 }
 
 /* FOOTER */
