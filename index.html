@@ -1136,6 +1136,10 @@ const avatar = await getChessAvatar(entry.student.name);
   </div>
 
 </div>
-
+<script>
+  document.querySelector('.zodiac-wedge').addEventListener('click', function () {
+    window.open(this.dataset.target, '_blank');
+  });
+</script>
 </body>
 </html>
