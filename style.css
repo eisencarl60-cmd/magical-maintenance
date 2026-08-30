@@ -1024,7 +1024,7 @@ body {
   z-index: 2;
 }
 .cheese-slice {
-  fill: #ffd84d;
+  fill: rgba(255, 216, 77, 0.35);
   stroke: none;
 }
 .zodiac-emoji {
