@@ -1046,13 +1046,7 @@ body {
 .zodiac-wedge {
   cursor: pointer;
 }
-.zodiac-wedge:hover .cheese-slice {
-  filter: brightness(1.2);
-}
-.zodiac-wedge:hover .zodiac-emoji,
-.zodiac-wedge:hover .zodiac-number {
-  opacity: 0.3;
-}
+
 /* FOOTER */
 
 .footer {
