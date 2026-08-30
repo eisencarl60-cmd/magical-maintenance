@@ -1054,7 +1054,7 @@ body {
 }
 
 .zodiac-wedge:hover .cheese-slice {
-  opacity: 0.82;
+  filter: brightness(1.2);
 }
 /* FOOTER */
 
