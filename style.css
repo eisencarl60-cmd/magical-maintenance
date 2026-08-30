@@ -1051,11 +1051,12 @@ body {
 .zodiac-wedge {
   cursor: pointer;
 }
-
-.zodiac-wedge:hover .cheese-slice,
+.zodiac-wedge:hover .cheese-slice {
+  filter: brightness(1.2);
+}
 .zodiac-wedge:hover .zodiac-emoji,
 .zodiac-wedge:hover .zodiac-number {
-  filter: brightness(1.2);
+  opacity: 0.3;
 }
 /* FOOTER */
 
