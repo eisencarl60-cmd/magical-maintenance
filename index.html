@@ -1066,27 +1066,33 @@ const avatar = await getChessAvatar(entry.student.name);
 
 </g>
 <!-- WEDGE 11 -->
-<path
-  class="cheese-slice"
-  data-zodiac="aquarius"
-  transform="rotate(315 50 50)"
-  d="M 50 50 L 50 0 A 50 50 0 0 1 75 6.7 Z">
-</path>
+<g
+  class="zodiac-wedge"
+  data-target="https://www.chess.com/clubs/forum/view/hidden-cheese-scriptorium-11">
+  <path
+    class="cheese-slice"
+    data-zodiac="aquarius"
+    transform="rotate(315 50 50)"
+    d="M 50 50 L 50 0 A 50 50 0 0 1 75 6.7 Z">
+  </path>
 
-<text
-  class="zodiac-emoji"
-  x="32"
-  y="22"
-  text-anchor="middle">
-  ♒
-</text>
-<text
-  class="zodiac-number"
-  x="27"
-  y="13"
-  text-anchor="middle">
-  XI
-</text>
+  <text
+    class="zodiac-emoji"
+    x="32"
+    y="22"
+    text-anchor="middle">
+    ♒
+  </text>
+
+  <text
+    class="zodiac-number"
+    x="27"
+    y="13"
+    text-anchor="middle">
+    XI
+  </text>
+
+</g>
 <!-- WEDGE 12 -->
 <path
   class="cheese-slice"
@@ -1152,8 +1158,10 @@ const avatar = await getChessAvatar(entry.student.name);
 
 </div>
 <script>
-  document.querySelector('.zodiac-wedge').addEventListener('click', function () {
-    window.open(this.dataset.target, '_blank');
+  document.querySelectorAll('.zodiac-wedge').forEach(function (wedge) {
+    wedge.addEventListener('click', function () {
+      window.open(this.dataset.target, '_blank');
+    });
   });
 </script>
 </body>
