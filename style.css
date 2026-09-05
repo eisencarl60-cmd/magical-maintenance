@@ -1063,6 +1063,16 @@ body {
   opacity: 1;
 }
 
+.cheese-horologium-invitation {
+  color: #f6c928;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
 /* FOOTER */
 
 .footer {
