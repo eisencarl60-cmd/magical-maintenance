@@ -1004,6 +1004,7 @@ body {
   height: 240px;
   margin: 10px auto;
   position: relative;
+  left: -10px;
 }
 .cheese-wheel-face {
   width: 100%;
